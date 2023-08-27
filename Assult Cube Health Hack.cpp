@@ -11,12 +11,6 @@
 #include <math.h> 
 #define PI 3.14159265
 
-std::string convert_int(int num) 
-{
-    std::stringstream ss;
-    ss << num;
-    return ss.str();
-}
 
 
 
@@ -25,8 +19,7 @@ std::string convert_int(int num)
 int main()
 {
     
-    DWORD fly = 30;
-    DWORD ammo = 200;
+ 
 	DWORD pid;
     //X, Z and Y offsets in assult cube are 30, 50, 28 (all in hex)
     
@@ -37,7 +30,7 @@ int main()
     
     uintptr_t base = GetModuleBaseAddress(pid, L"ac_client.exe") + 0x17E0A8;
    
-    std::vector<unsigned int> ammoOffsets = { 0x38 };
+
     uintptr_t entitylist = GetModuleBaseAddress(pid, L"ac_client.exe") + 0x18AC04;
     uintptr_t ammoAddr = FindDMAAddy(phandle, base, ammoOffsets);
     DWORD FoundStatic;
